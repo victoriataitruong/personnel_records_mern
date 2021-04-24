@@ -5,8 +5,12 @@ const { getInfo, addInfo, getInfoId, addUpdate, deleteInfo } = require('../contr
 // getting info data
 router.get('/info', async (req, res) => {
 	const info = await infoSchema.find({});
-	await info;
-	res.json(info);
+	try {
+		await info;
+		res.json(info);
+	} catch (err) {
+		res.status(500).json({ msg: err });
+	}
 });
 
 //posting info data
@@ -23,7 +27,15 @@ router.post('/info', async (req, res) => {
 });
 
 //getting specific info data
-router.get('/info/:id', getInfoId);
+router.get('/info/:id', async (req, res) => {
+	const info = await infoSchema.findById(req.params.id);
+	try {
+		await info;
+		res.json(info);
+	} catch (err) {
+		res.status(500).json({ msg: err });
+	}
+});
 
 //   updating this specific id
 router.put('/info/update/:id', addUpdate);
