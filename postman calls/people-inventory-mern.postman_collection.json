@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "d7245fc2-c927-43c9-a348-977d6170f351",
+		"name": "people-inventory-mern",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addUpdate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"kitkat\",\r\n    \"occupation\": \"milkman\",\r\n    \"email\": \"cat@gmail.com\",\r\n    \"date\": \"april 26, 2021\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/info/update/60835b437fddf22854bc4e12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"info",
+						"update",
+						"60835b437fddf22854bc4e12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addInfo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"batman\",\r\n    \"occupation\": \"hero\",\r\n    \"email\": \"bat@gmail.com\",\r\n    \"date\": \"april 26, 2021\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getInfoId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/info/60835b437fddf22854bc4e12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"info",
+						"60835b437fddf22854bc4e12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteInfo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/info/60835b437fddf22854bc4e12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"info",
+						"60835b437fddf22854bc4e12"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
