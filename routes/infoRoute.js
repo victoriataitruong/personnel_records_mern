@@ -38,14 +38,25 @@ router.get('/info/:id', async (req, res) => {
 });
 
 //   updating this specific id
-router.put('/info/update/:id', addUpdate);
+router.put('/info/update/:id', async (req, res) => {
+	const { name, occupation, email, date } = req.body;
+	const info = await infoSchema.findByIdAndUpdate(req.params.id, {
+		name,
+		occupation,
+		email,
+		date: Date.parse(req.body.date)
+	});
+	res.json({ msg: 'Item updated' });
+});
 
-//   updating this specific id
-router.delete('/info/:id', deleteInfo);
+//   deleting this specific id
+router.delete('/info/:id', async (req, res) => {
+	try {
+		await infoSchema.findByIdAndDelete(req.params.id);
+		res.json({ msg: 'Item deleted' });
+	} catch (err) {
+		res.status(500).json({ msg: err });
+	}
+});
 
 module.exports = router;
-
-// mongodb+srv://blogger21:<password>@cluster0.wnhl9.mongodb.net/<dbname>?retryWrites=true&w=majority
-
-// blogger21
-// bloggerman
